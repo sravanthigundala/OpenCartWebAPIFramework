@@ -49,7 +49,7 @@ for (let row of testData) {
 //xlsx format
 //maintenance-high
 
-let loginTestData =ExcelHelper.readExcel('src/data/openCartTestData.xlsx');
+let loginTestData =ExcelHelper.readExcel('src/data/OpenCartTestData.xlsx');
 for(let row of loginTestData){
 
     test(`invalid login test with excel data-${row.username}`,async ({loginPage}) => {
