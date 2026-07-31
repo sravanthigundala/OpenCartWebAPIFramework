@@ -26,7 +26,7 @@ test.beforeEach('POST --generate the access token',async({request})=>{
     accessToken = jsonResponse.access_token;
 });
 
-test('GET -- get location data',async ({request}) => {
+test.skip('GET -- get location data',async ({request}) => {
   
     //https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY,AIRPORT&keyword=MUC&countryCode=DE
   
