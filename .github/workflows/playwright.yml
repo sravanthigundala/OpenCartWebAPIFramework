@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
 schedule:
-    - cron: '30 14 * * 1-5' ->Runs every day at 2:30 PM (UTC)
+  - cron: '30 14 * * 1-5' # Runs every day at 2:30 PM (UTC)
  # push:
   #  branches: [main, master]
  # pull_request:
@@ -28,7 +28,7 @@ jobs:
     
 
     steps:
-      -name: Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
      
 
