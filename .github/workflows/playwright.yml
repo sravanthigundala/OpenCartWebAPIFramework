@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report-${{ github.run_id }}
-          path: reports/html_report/
+          path: reports/html-report/
           retention-days: 30
 
       - name: Upload Allure Results
