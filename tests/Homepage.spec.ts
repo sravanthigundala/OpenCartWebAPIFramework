@@ -9,7 +9,7 @@ let homePage :HomePage;
 test.beforeEach(async ({page}) => {
     loginPage =new LoginPage(page);
     await loginPage.goToLoginPage();
-    await loginPage.doLogin('pwtestbatch@open.com','pw123');
+    await loginPage.doLogin(process.env.APP_USERNAME!,process.env.APP_PASSWORD!);
     
     homePage =new HomePage(page);   
 });
