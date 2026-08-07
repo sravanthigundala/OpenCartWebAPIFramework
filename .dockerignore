@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+reports/
+allure-results/
+allure-report/
+.git 
+.github
+config/env.*
+!config/.env.example
+dist/
+*.log
