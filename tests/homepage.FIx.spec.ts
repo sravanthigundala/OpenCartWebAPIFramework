@@ -6,17 +6,17 @@ test.beforeEach(async ({loginPage}) => {
     await loginPage.doLogin(process.env.APP_USERNAME!,process.env.APP_PASSWORD!); 
 });
 
-test('homepage title test', async ({homePage}) => {
+test('@smoke homepage title test', async ({homePage}) => {
     const pageTitle =await homePage.getHomePageTitle();
     console.log('home page title',pageTitle);
     expect(pageTitle).toBe('My Account')
     
 });
-test('logout link exist test',async ({homePage})=>{
+test('@smoke logout link exist test',async ({homePage})=>{
     expect(await homePage.isLogoutLinkExist()).toBeTruthy();
 });
 
-test('home page headers exist test',async({homePage})=>{
+test('@regression home page headers exist test',async({homePage})=>{
     let allHeaders = await homePage.getHomePageHeader();
     console.log('home Page headers :',allHeaders);
     expect.soft(allHeaders).toHaveLength(4);

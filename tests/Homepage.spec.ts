@@ -14,17 +14,17 @@ test.beforeEach(async ({page}) => {
     homePage =new HomePage(page);   
 });
 
-test('homepage title test', async () => {
+test.skip('homepage title test', async () => {
     const pageTitle =await homePage.getHomePageTitle();
     console.log('home page title',pageTitle);
     expect(pageTitle).toBe('My Account')
     
 });
-test('logout link exist test',async ()=>{
+test.skip('logout link exist test',async ()=>{
     expect(await homePage.isLogoutLinkExist()).toBeTruthy();
 });
 
-test('home page headers exist test',async()=>{
+test.skip('home page headers exist test',async()=>{
     let allHeaders = await homePage.getHomePageHeader();
     console.log('home Page headers :',allHeaders);
     expect.soft(allHeaders).toHaveLength(4);

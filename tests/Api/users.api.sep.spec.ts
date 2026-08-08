@@ -9,7 +9,7 @@ let userId:number;
 test.describe.serial('running e2e gorest crud api test',()=>{
 
 //GET TEST
-test('GET API--get all users',async ({apiHelper}) => {
+test('@regression GET API--get all users',async ({apiHelper}) => {
     let response =await apiHelper.get('/public/v2/users', AUTH_HEADER);
     console.log("Status:", response.status);
     console.log("Body:", response.body);
@@ -18,7 +18,7 @@ test('GET API--get all users',async ({apiHelper}) => {
     expect(response.body.length).toBeGreaterThan(0);   
 });
 
-test('POST API---create auser',async({apiHelper})=>{
+test('@regression POST API---create auser',async({apiHelper})=>{
     let userData ={
         name :'sravya',
         email :`automation_${Date.now()}@open.com`,
@@ -34,7 +34,7 @@ test('POST API---create auser',async({apiHelper})=>{
     console.log('created user Id :',userId);
 });
 
-test('PUT API---create auser',async({apiHelper})=>{
+test('@regression PUT API---create auser',async({apiHelper})=>{
     let userUpdatedData ={
         name :'sravya nayak',
         email :`automation_${Date.now()}@open.com`,
@@ -48,7 +48,7 @@ test('PUT API---create auser',async({apiHelper})=>{
     expect(response.body.status).toBe(userUpdatedData.status);
 });
 
-test('DELETE API---create auser',async({apiHelper})=>{
+test('@regression DELETE API---create auser',async({apiHelper})=>{
     let response =await apiHelper.delete(`/public/v2/users/${userId}`, AUTH_HEADER);
     expect(response.status).toBe(204);  
 });

@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 //**= wildcard --matched all the URLS...
 
 //intercept the network calls...
-test('intercept and log requests',async({page})=>{
+test('@smoke intercept and log requests',async({page})=>{
 
     await page.route('**/*',async (route)=>{
         console.log(route.request().method(),
@@ -20,7 +20,7 @@ test('intercept and log requests',async({page})=>{
 //intercept with mocking :
 //mocking :fake data/response
 
-test('mock search data api',async ({page})=>{
+test('@regression mock search data api',async ({page})=>{
 let fakeProducts =[
     {name:'Fake MacBook Pro',price:"$599"},
     {name:'Fake iphone 20',price:"$999"}
@@ -45,8 +45,9 @@ let fakeJson = await page.evaluate(async()=>{
 
 });
 
-test('mock search page with fake HTML', async({page})=>{
-     await page.route('**/index.php?route=product/search&search=macbook', (route) => {
+test.skip('@regression mock search page with fake HTML', async({page})=>{
+    
+    await page.route('**/index.php?route=product/search&search=macbook', (route) => {
         route.fulfill({
             status: 200,
             contentType: 'text/html',

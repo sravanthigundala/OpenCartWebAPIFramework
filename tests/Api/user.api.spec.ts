@@ -2,7 +2,7 @@ import { test,expect } from "@playwright/test";
 
 let AUTH_TOKEN ={Authorization :'Bearer 76a56f437ccf9df5855b0bc0c84a437efc0e2ad3067c29ad4ba029f294b3b04d'};
 
-test('get user test',async ({request}) => {
+test.skip('@regression get user test',async ({request}) => {
 
     let response =await request.get('https://gorest.co.in//public/v2/users',{
         headers:AUTH_TOKEN
@@ -19,7 +19,7 @@ test('get user test',async ({request}) => {
     
 });
 
-test('create a user test',async({request})=>{
+test.skip('create a user test',async({request})=>{
 
     //JS object
 

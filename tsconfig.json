@@ -8,7 +8,7 @@
             "DOM"
         ],
         "types": [
-            "node"
+            "node","@playwright/test"
         ],
         "strict": true,
         "esModuleInterop": true,

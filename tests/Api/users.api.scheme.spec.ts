@@ -48,7 +48,7 @@ let userArraysSchema = {
     "items": userSchema
 };
 
-test('GET --get a user',async({apiHelper})=>{
+test('@smoke GET --get a user',async({apiHelper})=>{
 
     let userData ={
         name:'schema test',
@@ -80,7 +80,7 @@ console.log("Created User ID:", userId);
     expect(isSchemaValid).toBeTruthy();
 });
 
-test('GET -- get all users', async ({ apiHelper }) => {
+test('@smoke GET -- get all users', async ({ apiHelper }) => {
 
 
 //get -get a user

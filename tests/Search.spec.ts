@@ -12,7 +12,7 @@ test.beforeEach(async ({loginPage}) => {
 const ProductData = CsvHelper.readCsv('src/data/product.csv');
 for(const row of ProductData){
 
-test(`Verify search count-${row.searchkey}-${row.productname}`,async ({homePage,searchResultPage})=>{
+test(`@regression Verify search count-${row.searchkey}-${row.productname}`,async ({homePage,searchResultPage})=>{
     await homePage.doSearch(row.searchkey);
     expect(await searchResultPage.getProductSearchResultCount()).toBe(Number(row.resultcount));
 });
@@ -20,9 +20,18 @@ test(`Verify search count-${row.searchkey}-${row.productname}`,async ({homePage,
 
 for(const row of ProductData){
 
-    test(`verify user is able to land on the product page-${row.searchKey}-${row.productname}`,async ({homePage,searchResultPage,page}) => {
+    test(`@regression verify user is able to land on the product page-${row.searchKey}-${row.productname}`,async ({homePage,searchResultPage,page}) => {
         await homePage.doSearch(row.searchkey);
         await searchResultPage.selectProduct(row.productname);
         expect(await page.title()).toBe(row.productname);
     });
 }
+test('@smoke comp logo exists on product page', async ({ basePage}) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
+
+test('@smoke footers exist on product page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});
+    
+
