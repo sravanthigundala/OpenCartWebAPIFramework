@@ -58,13 +58,13 @@ pipeline {
         //                 branch: 'master'
         //             sh 'mvn clean install -Dmaven.test.failure.ignore=true'
         //         }
+        // //     }
+        //     post {
+        //         always {
+        //             junit 'dev-app/target/surefire-reports/*.xml'
+        //         }
         //     }
-            post {
-                always {
-                    junit 'dev-app/target/surefire-reports/*.xml'
-                }
-            }
-        }
+        // }
 
         // ═════════════════════════════════════════════════
         // STAGE 2: BUILD DOCKER IMAGE
