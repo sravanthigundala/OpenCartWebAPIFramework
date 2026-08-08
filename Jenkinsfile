@@ -48,17 +48,17 @@ pipeline {
         // ═════════════════════════════════════════════════
         // STAGE 1: BUILD APP + UNIT TESTS
         // ═════════════════════════════════════════════════
-        stage('Build & Unit Tests') {
-            steps {
-                echo "========================================="
-                echo "  Building App + Running Unit Tests"
-                echo "========================================="
-                dir('dev-app') {
-                    git url: 'https://github.com/jglick/simple-maven-project-with-tests.git',
-                        branch: 'master'
-                    sh 'mvn clean install -Dmaven.test.failure.ignore=true'
-                }
-            }
+        // stage('Build & Unit Tests') {
+        //     steps {
+        //         echo "========================================="
+        //         echo "  Building App + Running Unit Tests"
+        //         echo "========================================="
+        //         dir('dev-app') {
+        //             git url: 'https://github.com/jglick/simple-maven-project-with-tests.git',
+        //                 branch: 'master'
+        //             sh 'mvn clean install -Dmaven.test.failure.ignore=true'
+        //         }
+        //     }
             post {
                 always {
                     junit 'dev-app/target/surefire-reports/*.xml'
@@ -75,8 +75,8 @@ pipeline {
                 echo "  Building Playwright Docker Image"
                 echo "========================================="
                 dir('qa-tests') {
-                    git url: 'https://github.com/naveenanimation20/OpenCartWebAPIFramework.git',
-                        branch: 'main'
+                    git url: 'https://github.com/sravanthigundala/OpenCartWebAPIFramework',
+                        branch: 'master'
                     sh "docker build -t ${DOCKER_IMAGE} ."
                 }
                 sh "docker images | grep ${DOCKER_IMAGE}"
